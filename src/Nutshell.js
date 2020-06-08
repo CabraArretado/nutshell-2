@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 // Moods
 import ApplicationViews from './components/ApplicationViews';
 import NavBar from './components/NavBar/NavBar';
+import Welcome from './components/Welcome/Welcome'
 
 function Nutshell() {
 
@@ -14,9 +15,9 @@ function Nutshell() {
     setHasUser(isAuthenticated());
   };
 
-return <>
-  <NavBar />
-  <ApplicationViews />
-</>
+return  <>
+  <NavBar hasUser={hasUser} />
+  <ApplicationViews setUser={setUser} hasUser={hasUser} /> 
+  </>
 }
 export default Nutshell;

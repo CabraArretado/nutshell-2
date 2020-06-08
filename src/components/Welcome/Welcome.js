@@ -1,11 +1,11 @@
 import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
-import "./Home.css"
+import { Link } from "react-router-dom";
 
 const Home = (props) => {
     return (
         <div>
-            <Jumbotron>
+            <Jumbotron className="container mt-5">
                 <h1 className="display-3">Welcome to NutShell!</h1>
                 <p className="lead">Here you can conect with your friends and family!</p>
                 <hr className="my-2" />
@@ -15,13 +15,13 @@ const Home = (props) => {
                         <p className="lead">
                             Are you new here?
                         </p>
-                        <Button color="primary">Register</Button>
+                        <Link to="/register"><Button color="dark">Register</Button></Link>
                     </div>
                     <div className="col">
                         <p className="lead">
                             Already have a account?
                         </p>
-                        <Button color="primary">Login</Button>
+                        <Button color="dark">Login</Button>
                     </div>
                 </div>
             </Jumbotron>
