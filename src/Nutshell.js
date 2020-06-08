@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Moods
+import ApplicationViews from './components/ApplicationViews';
+import NavBar from './components/NavBar/NavBar';
+
+function Nutshell() {
+
+    /* LOGIN */
+  const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+  const [hasUser, setHasUser] = useState(isAuthenticated())
+  const setUser = user => {
+    sessionStorage.setItem("credentials", JSON.stringify(user));
+    setHasUser(isAuthenticated());
+  };
+
+return <>
+  <NavBar />
+  <ApplicationViews />
+</>
 }
-
-export default App;
+export default Nutshell;
