@@ -21,7 +21,7 @@ const Home = (props) => {
                         <p className="lead">
                             Already have a account?
                         </p>
-                        <Button color="dark">Login</Button>
+                        <Link to="/login"><Button color="dark">Login</Button></Link>
                     </div>
                 </div>
             </Jumbotron>

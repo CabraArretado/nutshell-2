@@ -5,6 +5,24 @@
       "email": "aaaaa@aaa",
       "password": "aaa",
       "id": 1
+    },
+    {
+      "username": "zzz",
+      "email": "zzz@z",
+      "password": "zzz",
+      "id": 2
+    },
+    {
+      "username": "",
+      "email": "ss@s",
+      "password": "a",
+      "id": 3
+    },
+    {
+      "username": "aaa",
+      "email": "aaaaa@aaa",
+      "password": "a",
+      "id": 4
     }
   ],
   "events": []

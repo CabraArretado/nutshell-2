@@ -36,24 +36,30 @@ const Register = (props) => {
     // Register the user and log him in
     const handleRegister = (e) => {
         e.preventDefault();
-        createUser(credentials);
-        props.setUser(credentials)
-        console.log(credentials)
-        props.history.push("/");
+        if (!credentials.username || !credentials.password || !credentials.email) {
+            alert("Please, provide all the information in order to create a account")
+        }
+        else if (credentials.password !== confirmation) {
+            alert("Password and confirmation don't match")
+        }
+        else {
+            createUser(credentials);
+            props.setUser(credentials)
+            console.log(credentials)
+            props.history.push("/");
+        }
     }
 
     // TODO Register the use in the DB
     const createUser = (obj) => {
-        if (!obj.username && !obj.password && !obj.email) {alert("Please, provide all the information in order to create a account")}
-        else if (obj.password !== confirmation) {alert("Password and confirmation don't match")}
-        else {
             API.post("users", obj)
-        }
     }
 
     return <>
         <Jumbotron className="container mt-5">
             <h1 className="display-3">Register Account</h1>
+            <p>To have acess to the app you must create an account!</p>
+            <hr />
             <Form onSubmit={handleRegister}>
                 <FormGroup>
                     <Label for="username">Username</Label>
