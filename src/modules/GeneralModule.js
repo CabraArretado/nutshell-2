@@ -34,7 +34,7 @@ export default {
         }).then(data => data.json())
     },
 
-    // GET list expanded 
+    // GET list expanded //
     getExpanded(toExpand, otherList) {
         return fetch(`${remoteURL}/${toExpand}?_expand=${otherList.toLowerCase()}`).then(result => result.json())
     },
