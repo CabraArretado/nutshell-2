@@ -7,7 +7,7 @@ import Welcome from './components/Welcome/Welcome'
 
 function Nutshell() {
 
-    /* LOGIN */
+    /* LOGIN FEATURES */
   const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
   const [hasUser, setHasUser] = useState(isAuthenticated())
   const setUser = user => {

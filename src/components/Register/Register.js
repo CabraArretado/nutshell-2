@@ -10,16 +10,30 @@ import {
     Col
 } from 'reactstrap';
 
+// moods
+import API from "../../modules/GeneralModule"
+
 const Register = (props) => {
 
-    const [credentials, setCredentials] = useState({ email: "", username: "", password: "" });
+    const [credentials, setCredentials] = useState({ username: "" , email: "", password: "" });
+    const [confirmation, setConfirmation] = useState(null);
 
+    // Handle changes in the username, email, password
     const handleChange = (e) => {
-        let tempo = {...credentials};
-        tempo[e.target.id] = e.target.value;
-        setCredentials(tempo)
+        let stateToChange = {...credentials};
+        stateToChange[e.target.id] = e.target.value;
+        console.log(stateToChange)
+        setCredentials(stateToChange)
     }
 
+    // Handle password cofirmation changes
+    const handleConfirmation = (e) => {
+        let stateToChange = confirmation;
+        stateToChange = e.target.value;
+        setConfirmation(stateToChange)
+    }
+
+    // Register the user and log him in
     const handleRegister = (e) => {
         e.preventDefault();
         createUser(credentials);
@@ -28,9 +42,13 @@ const Register = (props) => {
         props.history.push("/");
     }
 
+    // TODO Register the use in the DB
     const createUser = (obj) => {
-        //todo
-        console.log("todo")
+        if (!obj.username && !obj.password && !obj.email) {alert("Please, provide all the information in order to create a account")}
+        else if (obj.password !== confirmation) {alert("Password and confirmation don't match")}
+        else {
+            API.post("users", obj)
+        }
     }
 
     return <>
@@ -52,10 +70,10 @@ const Register = (props) => {
                     </FormGroup>
                     <FormGroup className="col-6">
                         <Label for="confirmationInput">Confirm password</Label>
-                        <Input type="password" name="confirmation" id="confirmationInput" placeholder="Confirm your password" />
+                        <Input onChange={handleConfirmation} type="password" name="confirmation" id="confirmationInput" placeholder="Confirm your password" />
                     </FormGroup>
                 </div>
-                <Button type="submit">Register</Button>
+                <Button type="submit" className="">Register</Button>
             </Form>
         </Jumbotron>
     </>

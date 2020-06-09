@@ -4,6 +4,7 @@ import React from "react"
 // Moods
 import Welcome from "./Welcome/Welcome"
 import Register from "./Register/Register"
+import Login from "./Login/Login"
 
 const ApplicationViews = (props) => {
     const hasUser = props.hasUser;
@@ -22,8 +23,14 @@ const ApplicationViews = (props) => {
                 exact
                 path="/register"
                 render={props => {
-                    console.log(props)
                     return <Register setUser={setUser} {...props}/>;
+                }}
+            />
+            <Route
+                exact
+                path="/login"
+                render={props => {
+                    return <Login setUser={setUser} {...props}/>;
                 }}
             />
         </React.Fragment>
