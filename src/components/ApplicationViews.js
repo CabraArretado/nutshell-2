@@ -7,6 +7,7 @@ import Register from "./Register/Register"
 import Login from "./Login/Login"
 
 const ApplicationViews = (props) => {
+    // User
     const hasUser = props.hasUser;
     const setUser = props.setUser;
 
