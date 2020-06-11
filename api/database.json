@@ -13,7 +13,7 @@
       "id": 2
     },
     {
-      "username": "",
+      "username": "2",
       "email": "ss@s",
       "password": "a",
       "id": 3
@@ -25,5 +25,11 @@
       "id": 4
     }
   ],
-  "events": []
+  "messages": [
+
+  ],
+  "events": [],
+  "tasks": [],
+  "articles": [],
+  "friends": []
 }
