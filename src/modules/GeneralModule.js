@@ -71,5 +71,10 @@ export default {
                 const randomIndex = Math.floor(Math.random() * data.length);
                 return data[randomIndex].id;
             });
+    },
+
+    async getUserId(email) {
+        let data = await fetch(`${remoteURL}/users?email=${email}`).then(data => data.json())
+        return data
     }
 }

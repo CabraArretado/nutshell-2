@@ -15,7 +15,10 @@ import API from "../../modules/GeneralModule"
 
 const Messages = (props) => {
 
-    const [message, setMessage] = useState({content:""});
+    const user = sessionStorage.getItem('credentials')
+    console.log(user)
+
+    const [message, setMessage] = useState({content:"", userId: user.id});
     const [allMessages, setAllMessages] = useState([]);
 
     // handle changes on the input message

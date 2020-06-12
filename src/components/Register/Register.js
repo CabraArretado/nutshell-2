@@ -34,7 +34,7 @@ const Register = (props) => {
     }
 
     // Register the user and log him in
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         if (!credentials.username || !credentials.password || !credentials.email) {
             alert("Please, provide all the information in order to create a account")
@@ -43,9 +43,8 @@ const Register = (props) => {
             alert("Password and confirmation don't match")
         }
         else {
-            createUser(credentials);
-            props.setUser(credentials)
-            console.log(credentials)
+            await createUser(credentials);
+            await props.setUser(credentials);
             props.history.push("/");
         }
     }

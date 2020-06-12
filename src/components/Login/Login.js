@@ -15,12 +15,11 @@ import "../../index.css"
 
 const Login = (props) => {
 
-    const [credentials, setCredentials] = useState({ email: "", password: "" });
+    const [credentials, setCredentials] = useState({username:"", email: "", password: ""});
 
     const handleChange = (e) => {
         let stateToChange = { ...credentials };
         stateToChange[e.target.id] = e.target.value;
-        console.log(stateToChange)
         setCredentials(stateToChange)
     }
 
